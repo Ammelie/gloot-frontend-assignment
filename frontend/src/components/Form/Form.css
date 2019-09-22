@@ -1,0 +1,31 @@
+form {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+input[type="text"] {
+  font-family: inherit;
+  color: hotpink;
+  box-sizing: border-box;
+  background: none;
+  border: none;
+  border-bottom: solid grey;
+}
+
+.large > input[type="text"] {
+  height: 35px;
+  font-size: 20px;
+  width: 370px;
+}
+
+.large > button[type="submit"] {
+  font-size: 20px;
+}
+
+button[type="submit"] {
+  font-family: inherit;
+  color: red;
+  border: none;
+  background: none;
+}

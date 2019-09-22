@@ -1,0 +1,19 @@
+.App {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100vh;
+  padding-top: 100px;
+  font-family: "Press Start 2P", cursive;
+  background: black;
+}
+
+main {
+  width: 500px;
+}
+
+.App-header {
+  color: orange;
+  text-shadow: 3px 3px red;
+  text-align: center;
+}

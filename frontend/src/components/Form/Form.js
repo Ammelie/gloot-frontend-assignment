@@ -1,4 +1,5 @@
 import React from "react";
+import "./Form.css";
 
 class Form extends React.Component {
   constructor() {
@@ -10,13 +11,14 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className={this.props.size} onSubmit={this.handleSubmit}>
         <input
           type="text"
           value={this.state.value}
+          placeholder="NEW PLAYER"
           onChange={this.handleChange}
         />
-        <button type="submit">+</button>
+        <button type="submit">ENTER</button>
       </form>
     );
   }

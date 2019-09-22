@@ -1,6 +1,6 @@
 import React from "react";
-import Form from "./components/Form";
-import List from "./components/List";
+import Form from "./components/Form/Form";
+import List from "./components/List/List";
 import "./App.css";
 
 class App extends React.Component {
@@ -18,11 +18,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Player list</h1>
-        </header>
-        <Form addPlayer={this.addPlayer} />
-        <List players={this.state.players} />
+        <main>
+          <header className="App-header">
+            <h1>Player list</h1>
+          </header>
+          <Form size={"large"} addPlayer={this.addPlayer} />
+          <List players={this.state.players} />
+        </main>
       </div>
     );
   }
