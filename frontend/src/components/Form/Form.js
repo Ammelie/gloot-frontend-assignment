@@ -36,8 +36,6 @@ class Form extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
 
-    console.log(this.state);
-
     switch (this.props.type) {
       case "ADD":
         this.props.submit(this.state.value);

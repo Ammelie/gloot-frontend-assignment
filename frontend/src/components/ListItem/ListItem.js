@@ -9,11 +9,17 @@ function ListItem(props) {
         buttonText="Rename"
         placeholder={props.player.name}
         player={props.player}
-        styling={"edit-player-form"}
+        styling={"update-player-form"}
         submit={props.updatePlayer}
         type="UPDATE"
         value={props.player.name}
       ></Form>
+      <button
+        className="remove-button"
+        onClick={() => props.removePlayer(props.player.id)}
+      >
+        Remove
+      </button>
     </li>
   );
 }
