@@ -18,7 +18,7 @@ class Form extends React.Component {
           placeholder="NEW PLAYER"
           onChange={this.handleChange}
         />
-        <button type="submit">ENTER</button>
+        <button type="submit">{this.props.buttonText}</button>
       </form>
     );
   }
