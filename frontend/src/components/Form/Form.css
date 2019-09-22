@@ -12,6 +12,7 @@ input[type="text"] {
   background: none;
   border: none;
   border-bottom: solid grey;
+  text-transform: uppercase;
 }
 
 .large > input[type="text"] {
@@ -29,6 +30,7 @@ button[type="submit"] {
   color: turquoise;
   border: none;
   background: none;
+  text-transform: uppercase;
 }
 
 button[type="submit"]:hover {

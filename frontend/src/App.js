@@ -22,7 +22,7 @@ class App extends React.Component {
           <header className="App-header">
             <h1>Player list</h1>
           </header>
-          <Form size={"large"} buttonText="ENTER" addPlayer={this.addPlayer} />
+          <Form size={"large"} buttonText="Enter" addPlayer={this.addPlayer} />
           <ul className="player-list">
             {this.state.players.map(player => (
               <ListItem player={player} />

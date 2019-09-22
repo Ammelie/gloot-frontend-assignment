@@ -15,7 +15,7 @@ class Form extends React.Component {
         <input
           type="text"
           value={this.state.value}
-          placeholder="NEW PLAYER"
+          placeholder="New Player"
           onChange={this.handleChange}
         />
         <button type="submit">{this.props.buttonText}</button>
