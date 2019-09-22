@@ -52,35 +52,36 @@ class App extends React.Component {
   };
 
   updatePlayer = async player => {
-    const name = player.name;
+    const newName = player.name;
     const id = player.id;
+
     try {
       const res = await fetch(`/player/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name })
+        body: JSON.stringify({ name: newName })
       });
-      const player = await res.json();
-      this.setState({ players: [...this.state.players, player] });
+      const updatedPlayer = await res.json();
+      const updatedPlayerList = this.state.players.map(player => {
+        if (player.id === updatedPlayer.id) return updatedPlayer;
+        else return player;
+      });
+      this.setState({ players: updatedPlayerList });
     } catch (error) {
       console.log(error);
     }
   };
 
-  removePlayer = async player => {
-    const name = player.name;
-    const id = player.id;
+  removePlayer = async id => {
     try {
       const res = await fetch(`/player/${id}`, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" }
       });
       const removedPlayer = await res.json();
-
       const updatedPlayerList = this.state.players.filter(
         player => player.id !== removedPlayer.id
       );
-
       this.setState({ players: updatedPlayerList });
     } catch (error) {
       console.log(error);
