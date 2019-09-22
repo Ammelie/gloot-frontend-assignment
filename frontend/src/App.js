@@ -22,10 +22,21 @@ class App extends React.Component {
           <header className="App-header">
             <h1>Player list</h1>
           </header>
-          <Form size={"large"} buttonText="Enter" addPlayer={this.addPlayer} />
+          <Form
+            buttonText="Enter"
+            placeholder="New Player"
+            styling="add-player-form"
+            submit={this.addPlayer}
+            type="ADD"
+          />
           <ul className="player-list">
             {this.state.players.map(player => (
-              <ListItem player={player} />
+              <ListItem
+                key={player.id}
+                player={player}
+                updatePlayer={this.updatePlayer}
+                removePlayer={this.removePlayer}
+              />
             ))}
           </ul>
         </main>

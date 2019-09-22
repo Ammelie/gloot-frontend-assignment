@@ -2,26 +2,30 @@ form {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+}
+
+form.add-player-form {
   margin: 40px 0 50px;
 }
 
 input[type="text"] {
   font-family: inherit;
-  color: hotpink;
+  color: white;
   box-sizing: border-box;
   background: none;
   border: none;
-  border-bottom: solid grey;
   text-transform: uppercase;
 }
 
-.large > input[type="text"] {
+.add-player-form > input[type="text"] {
+  border-bottom: solid grey;
+  color: hotpink;
   height: 35px;
   font-size: 20px;
   width: 370px;
 }
 
-.large > button[type="submit"] {
+.add-player-form > button[type="submit"] {
   font-size: 20px;
 }
 

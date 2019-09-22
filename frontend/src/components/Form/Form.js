@@ -9,13 +9,19 @@ class Form extends React.Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.value) {
+      this.setState({ value: this.props.value });
+    }
+  }
+
   render() {
     return (
-      <form className={this.props.size} onSubmit={this.handleSubmit}>
+      <form className={this.props.styling} onSubmit={this.handleSubmit}>
         <input
           type="text"
           value={this.state.value}
-          placeholder="New Player"
+          placeholder={this.props.placeholder}
           onChange={this.handleChange}
         />
         <button type="submit">{this.props.buttonText}</button>
@@ -29,13 +35,24 @@ class Form extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addPlayer(this.state.value);
-    this.emptyForm();
-  };
 
-  emptyForm() {
-    this.setState({ value: "" });
-  }
+    console.log(this.state);
+
+    switch (this.props.type) {
+      case "ADD":
+        this.props.submit(this.state.value);
+        this.setState({ value: "" });
+        break;
+      case "UPDATE":
+        this.props.submit({ id: this.props.player.id, name: this.state.value });
+        break;
+      case "REMOVE":
+        this.props.submit(this.props.player.id);
+        break;
+      default:
+        console.log("No such type");
+    }
+  };
 }
 
 export default Form;

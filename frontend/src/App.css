@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 100px;
   font-family: "Press Start 2P", cursive;
   background: black;
