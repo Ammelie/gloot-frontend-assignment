@@ -11,9 +11,8 @@ class App extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    const players = await this.getPlayers();
-    this.setState({ players });
+  componentDidMount() {
+    this.getPlayers();
   }
 
   render() {
@@ -32,7 +31,7 @@ class App extends React.Component {
     try {
       const res = await fetch("/players");
       const players = await res.json();
-      return players;
+      this.setState({ players });
     } catch (error) {
       console.log(error);
     }
@@ -47,6 +46,42 @@ class App extends React.Component {
       });
       const player = await res.json();
       this.setState({ players: [...this.state.players, player] });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  updatePlayer = async player => {
+    const name = player.name;
+    const id = player.id;
+    try {
+      const res = await fetch(`/player/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name })
+      });
+      const player = await res.json();
+      this.setState({ players: [...this.state.players, player] });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  removePlayer = async player => {
+    const name = player.name;
+    const id = player.id;
+    try {
+      const res = await fetch(`/player/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" }
+      });
+      const removedPlayer = await res.json();
+
+      const updatedPlayerList = this.state.players.filter(
+        player => player.id !== removedPlayer.id
+      );
+
+      this.setState({ players: updatedPlayerList });
     } catch (error) {
       console.log(error);
     }

@@ -1,5 +1,4 @@
 import React from "react";
-import ListItem from "./ListItem";
 
 function List(props) {
   const players = props.players.map(player => (
