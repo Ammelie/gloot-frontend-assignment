@@ -6,7 +6,7 @@ function ListItem(props) {
   return (
     <li>
       <Form
-        buttonText="Rename"
+        buttonText="Submit"
         placeholder={props.player.name}
         player={props.player}
         styling={"update-player-form"}
